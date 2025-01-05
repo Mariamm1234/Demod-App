@@ -30,7 +30,8 @@ class Login extends StatelessWidget {
 
       if (password.isEmpty || password.length < 6) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Password must be at least 6 characters")),
+          const SnackBar(
+              content: Text("Password must be at least 6 characters")),
         );
         return;
       }
@@ -43,18 +44,18 @@ class Login extends StatelessWidget {
 
       final isSuccess = await authProvider.token(token);
 
-      if ( authProvider.isAuthenticated) {
-authProvider.count++;
+      if (authProvider.isAuthenticated) {
+        authProvider.count++;
         print("Login successful. Navigating to Shop Page.");
-       // Navigator.pushReplacementNamed(context, '/shop_page');
+        // Navigator.pushReplacementNamed(context, '/shop_page');
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("Login failed. Please try again.")),
         );
       }
-    if(authProvider.count==2) {
-      Navigator.pushReplacementNamed(context, '/shop_page');
-    }
+      if (authProvider.count == 2) {
+        Navigator.pushReplacementNamed(context, '/shop_page');
+      }
     }
 
     return Scaffold(
@@ -132,7 +133,8 @@ authProvider.count++;
                                 padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   border: Border(
-                                    bottom: BorderSide(color: Colors.grey.shade200),
+                                    bottom:
+                                        BorderSide(color: Colors.grey.shade200),
                                   ),
                                 ),
                                 child: TextField(
@@ -149,7 +151,8 @@ authProvider.count++;
                                 padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   border: Border(
-                                    bottom: BorderSide(color: Colors.grey.shade200),
+                                    bottom:
+                                        BorderSide(color: Colors.grey.shade200),
                                   ),
                                 ),
                                 child: TextField(
@@ -166,7 +169,8 @@ authProvider.count++;
                                 padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
                                   border: Border(
-                                    bottom: BorderSide(color: Colors.grey.shade200),
+                                    bottom:
+                                        BorderSide(color: Colors.grey.shade200),
                                   ),
                                 ),
                                 child: TextField(
@@ -181,21 +185,25 @@ authProvider.count++;
                               // Consumer to conditionally show the token TextField
                               Consumer<UserProvider>(
                                 builder: (context, authProvider, child) {
-                                  if (authProvider.isAuthenticated && authProvider.vip != null) {
+                                  if (authProvider.isAuthenticated &&
+                                      authProvider.vip != null) {
                                     return Container(
                                       padding: const EdgeInsets.all(10),
                                       decoration: BoxDecoration(
                                         border: Border(
-                                          bottom: BorderSide(color: Colors.grey.shade200),
+                                          bottom: BorderSide(
+                                              color: Colors.grey.shade200),
                                         ),
                                       ),
                                       child: TextField(
                                         obscureText: true,
                                         readOnly: true,
-                                        controller: TextEditingController(text: authProvider.vip),
+                                        controller: TextEditingController(
+                                            text: authProvider.vip),
                                         decoration: const InputDecoration(
                                           hintText: "Token",
-                                          hintStyle: TextStyle(color: Colors.grey),
+                                          hintStyle:
+                                              TextStyle(color: Colors.grey),
                                           border: InputBorder.none,
                                         ),
                                       ),
@@ -230,12 +238,13 @@ authProvider.count++;
                           child: const Center(
                             child: Text(
                               "Login",
-                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
                       ),
-                      // Additional UI elements can go here
                     ],
                   ),
                 ),

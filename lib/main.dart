@@ -15,13 +15,10 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (context) => ProductProvider()),
         ChangeNotifierProvider(create: (context) => UserProvider()),
-         ChangeNotifierProvider(create: (context) => CartProvider()),
+        ChangeNotifierProvider(create: (context) => CartProvider()),
       ],
       child: const MyApp(),
     ),
-
-
- 
   );
 }
 
@@ -33,18 +30,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:Intro(),
+      home: Intro(),
       theme: lightMode,
       routes: {
-        '/login':(context)=>const Login(),
-        '/intro':(context)=>const Intro(),
-        '/shop_page':(context)=>const ShopPage(),
-      '/cart_page':(context)=>const CartPage(),
+        '/login': (context) => const Login(),
+        '/intro': (context) => const Intro(),
+        '/shop_page': (context) => const ShopPage(),
+        '/cart_page': (context) => const CartPage(),
       },
     );
   }
 }
-
-
-
- 

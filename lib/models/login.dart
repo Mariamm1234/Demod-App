@@ -1,9 +1,6 @@
-class LoginDto{
+class LoginDto {
   final String token;
-final String email;
+  final String email;
 
-LoginDto({
-  required this.email,
-  required this.token
-});
+  LoginDto({required this.email, required this.token});
 }
